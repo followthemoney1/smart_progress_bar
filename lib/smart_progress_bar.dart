@@ -15,7 +15,7 @@ class SmartProgressBar {
               backgroundColor: backgroundColor, textColor: textColor)
           : await NativeProgressHud.showWaitingWithText(text,
               backgroundColor: backgroundColor, textColor: textColor);
-      whileRun();
+      await whileRun();
     } catch (e) {
       print(e);
     } finally {
