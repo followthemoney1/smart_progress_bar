@@ -1,4 +1,4 @@
-library smartprogressbar;
+library smart_progress_bar;
 
 import 'package:flutter/cupertino.dart';
 import 'package:native_progress_hud/native_progress_hud.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:smartprogressbar/smartprogressbar.dart';
+import 'package:smart_progress_bar/smart_progress_bar.dart';
 
 void main() {
   test('adds one to input values', () {
