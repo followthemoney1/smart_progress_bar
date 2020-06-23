@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:native_progress_hud/native_progress_hud.dart';
 
 class SmartProgressBar {
-  static void withSmartProgressBar(
+  static void showProgressBar(
       {Function whileRun,
       String text,
       String backgroundColor = "#000000",

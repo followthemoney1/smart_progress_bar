@@ -1,8 +1,8 @@
 name: smart_progress_bar
 description: Flutter progress par.
 version: 0.0.1
-author:
-homepage:
+author: Dmitry Diachenko
+homepage: www.leaditteam.com
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
