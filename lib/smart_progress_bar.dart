@@ -5,16 +5,15 @@ import 'package:native_progress_hud/native_progress_hud.dart';
 
 class SmartProgressBar {
   static void showProgressBar(
-      {String text,
+      {Function whileRun,
+      String text,
       String backgroundColorHex = "#000000",
       String textColorHex = "#ffffff",
       Color backgroundColor,
       Color textColor}) async {
-    backgroundColorHex = backgroundColor != null
-        ? backgroundColor.value.toRadixString(16)
-        : backgroundColorHex;
-    textColorHex =
-        textColor != null ? textColor.value.toRadixString(16) : textColorHex;
+    backgroundColorHex =
+        backgroundColor != null ? backgroundColor.toHex() : backgroundColorHex;
+    textColorHex = textColor != null ? textColor.toHex() : textColorHex;
     try {
       text == null
           ? await NativeProgressHud.showWaiting(
@@ -40,11 +39,9 @@ extension SmartProgressBarFutureExt<T> on Future<T> {
       Color textColor}) async {
     var res;
 
-    backgroundColorHex = backgroundColor != null
-        ? backgroundColor.value.toRadixString(16)
-        : backgroundColorHex;
-    textColorHex =
-        textColor != null ? textColor.value.toRadixString(16) : textColorHex;
+    backgroundColorHex =
+        backgroundColor != null ? backgroundColor.toHex() : backgroundColorHex;
+    textColorHex = textColor != null ? textColor.toHex() : textColorHex;
     try {
       text == null
           ? await NativeProgressHud.showWaiting(
@@ -60,4 +57,21 @@ extension SmartProgressBarFutureExt<T> on Future<T> {
     }
     return res;
   }
+}
+
+extension SmartProgressBarColorExt on Color {
+  /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
+  static Color fromHex(String hexString) {
+    final buffer = StringBuffer();
+    if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
+    buffer.write(hexString.replaceFirst('#', ''));
+    return Color(int.parse(buffer.toString(), radix: 16));
+  }
+
+  /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
+  String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'
+      '${alpha.toRadixString(16).padLeft(2, '0')}'
+      '${red.toRadixString(16).padLeft(2, '0')}'
+      '${green.toRadixString(16).padLeft(2, '0')}'
+      '${blue.toRadixString(16).padLeft(2, '0')}';
 }
