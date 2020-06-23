@@ -19,8 +19,14 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Usage
 
-You can easily use the library in many ways.
-You can call the progress bar while your code is executed in the following way:
+First you need to add a library to `pubspec.yaml`:
+```
+dependencies:
+  smart_progress_bar: ^0.1.2
+```
+
+
+Now you can call the progress bar while your code is executed in the following way:
 ```
 showProgressBar(whileRun: () async {
  //any code
