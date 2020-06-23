@@ -3,35 +3,33 @@ library smart_progress_bar;
 import 'package:flutter/cupertino.dart';
 import 'package:native_progress_hud/native_progress_hud.dart';
 
-class SmartProgressBar {
-  static void showProgressBar(
-      {Function whileRun,
-      String text,
-      String backgroundColorHex = "#000000",
-      String textColorHex = "#ffffff",
-      Color backgroundColor,
-      Color textColor}) async {
-    backgroundColorHex =
-        backgroundColor != null ? backgroundColor.toHex() : backgroundColorHex;
-    textColorHex = textColor != null ? textColor.toHex() : textColorHex;
-    try {
-      text == null
-          ? await NativeProgressHud.showWaiting(
-              backgroundColor: backgroundColorHex, textColor: textColorHex)
-          : await NativeProgressHud.showWaitingWithText(text,
-              backgroundColor: backgroundColorHex, textColor: textColorHex);
-      await whileRun();
-    } catch (e) {
-      print(e);
-    } finally {
-      await Future.delayed(Duration(seconds: 1),
-          () => NativeProgressHud.hideWaiting()); //for visibility
-    }
+void showProgressBar(
+    {Function whileRun,
+    String text,
+    String backgroundColorHex = "#000000",
+    String textColorHex = "#ffffff",
+    Color backgroundColor,
+    Color textColor}) async {
+  backgroundColorHex =
+      backgroundColor != null ? backgroundColor.toHex() : backgroundColorHex;
+  textColorHex = textColor != null ? textColor.toHex() : textColorHex;
+  try {
+    text == null
+        ? await NativeProgressHud.showWaiting(
+            backgroundColor: backgroundColorHex, textColor: textColorHex)
+        : await NativeProgressHud.showWaitingWithText(text,
+            backgroundColor: backgroundColorHex, textColor: textColorHex);
+    await whileRun();
+  } catch (e) {
+    print(e);
+  } finally {
+    await Future.delayed(Duration(seconds: 1),
+        () => NativeProgressHud.hideWaiting()); //for visibility
   }
 }
 
 extension SmartProgressBarFutureExt<T> on Future<T> {
-  Future<T> withSmartProgressBar(
+  Future<T> showProgressBar(
       {String text,
       String backgroundColorHex = "#000000",
       String textColorHex = "#ffffff",

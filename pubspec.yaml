@@ -1,8 +1,8 @@
 name: smart_progress_bar
-description: Flutter progress par.
-version: 0.0.1
+description: Flutter is a progress bar that you can easily use the library in many ways.
+version: 0.1.2
 author: Dmitry Diachenko
-homepage: https://www.leaditteam.com
+homepage: https://leaditteam.com/
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

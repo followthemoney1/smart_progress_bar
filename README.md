@@ -1,6 +1,6 @@
 # smart_progress_bar
 
-A new Flutter package.
+Flutter is a progress bar that you can easily use the library in many ways.
 
 ## Getting Started
 
@@ -15,32 +15,58 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Example
 
-![GitHub Logo](/g.gif)
+![GitHub Logo](https://github.com/followthemoney1/smart_progress_bar/blob/master/g.gif?raw=true)
 
 ## Usage
 
 You can easily use the library in many ways.
 You can call the progress bar while your code is executed in the following way:
 ```
-SmartProgressBar.showProgressBar(whileRun: () async {
-                      //any code
-                    });
+showProgressBar(whileRun: () async {
+ //any code
+});
 ```
+
 or
+
 ```
- SmartProgressBar.showProgressBar(
-                        backgroundColor: Colors.black,
-                        textColor: Colors.white,
-                        text: "Any hint",
-                        //backgroundColorHex:"#000000",
-                        //textColorHex:"#ffffff",
-                        whileRun: () {
-                         //any code
-                        });
+showProgressBar(
+    backgroundColor: Colors.black,
+    textColor: Colors.white,
+    text: "Any hint",
+    whileRun: () {
+    //any code
+    },
+);
 ```
 
 
 Or you can use the progress bar by adding it to your asynchronous function:
 ```
-final res = await validateAndSubmit().withSmartProgressBar();
+final res = await validateAndSubmit().showProgressBar();
+```
+
+
+All fields:
+```
+showProgressBar(
+    backgroundColor: Colors.black,
+    textColor: Colors.white,
+    text: "Any hint",
+    backgroundColorHex:"#000000",
+    textColorHex:"#ffffff",
+    whileRun: () {
+     //any code
+     },
+);
+
+ //
+
+Function<T>.showProgressBar(
+    backgroundColor: Colors.black,
+    textColor: Colors.white,
+    text: "Any hint",
+    backgroundColorHex:"#000000",
+    textColorHex:"#ffffff"
+);
 ```
