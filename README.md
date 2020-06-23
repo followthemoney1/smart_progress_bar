@@ -22,7 +22,7 @@ samples, guidance on mobile development, and a full API reference.
 First you need to add a library to `pubspec.yaml`:
 ```
 dependencies:
-  smart_progress_bar: ^0.1.2
+  smart_progress_bar: any
 ```
 
 
@@ -76,3 +76,5 @@ Function<T>.showProgressBar(
     textColorHex:"#ffffff"
 );
 ```
+
+Thank you so much [MohammedAlimoor](https://pub.dev/packages/native_progress_hud) for `native_progress_hud` library 🙂
