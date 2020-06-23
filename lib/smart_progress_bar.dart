@@ -5,16 +5,22 @@ import 'package:native_progress_hud/native_progress_hud.dart';
 
 class SmartProgressBar {
   static void showProgressBar(
-      {Function whileRun,
-      String text,
-      String backgroundColor = "#000000",
-      String textColor = "#ffffff"}) async {
+      {String text,
+      String backgroundColorHex = "#000000",
+      String textColorHex = "#ffffff",
+      Color backgroundColor,
+      Color textColor}) async {
+    backgroundColorHex = backgroundColor != null
+        ? backgroundColor.value.toRadixString(16)
+        : backgroundColorHex;
+    textColorHex =
+        textColor != null ? textColor.value.toRadixString(16) : textColorHex;
     try {
       text == null
           ? await NativeProgressHud.showWaiting(
-              backgroundColor: backgroundColor, textColor: textColor)
+              backgroundColor: backgroundColorHex, textColor: textColorHex)
           : await NativeProgressHud.showWaitingWithText(text,
-              backgroundColor: backgroundColor, textColor: textColor);
+              backgroundColor: backgroundColorHex, textColor: textColorHex);
       await whileRun();
     } catch (e) {
       print(e);
@@ -28,16 +34,23 @@ class SmartProgressBar {
 extension SmartProgressBarFutureExt<T> on Future<T> {
   Future<T> withSmartProgressBar(
       {String text,
-      String backgroundColor = "#000000",
-      String textColor = "#ffffff"}) async {
+      String backgroundColorHex = "#000000",
+      String textColorHex = "#ffffff",
+      Color backgroundColor,
+      Color textColor}) async {
     var res;
-//    Future.delayed(Duration(seconds: 8), () => NativeProgressHud.hideWaiting());
+
+    backgroundColorHex = backgroundColor != null
+        ? backgroundColor.value.toRadixString(16)
+        : backgroundColorHex;
+    textColorHex =
+        textColor != null ? textColor.value.toRadixString(16) : textColorHex;
     try {
       text == null
           ? await NativeProgressHud.showWaiting(
-              backgroundColor: backgroundColor, textColor: textColor)
+              backgroundColor: backgroundColorHex, textColor: textColorHex)
           : await NativeProgressHud.showWaitingWithText(text,
-              backgroundColor: backgroundColor, textColor: textColor);
+              backgroundColor: backgroundColorHex, textColor: textColorHex);
       res = await this;
     } catch (e) {
       print(e);
