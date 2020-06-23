@@ -1,4 +1,4 @@
-# smartprogressbar
+# smart_progress_bar
 
 A new Flutter package.
 
