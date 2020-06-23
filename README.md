@@ -1,6 +1,7 @@
 # smart_progress_bar
 
-Flutter is a progress bar that you can easily use the library in many ways.
+Simple progress hud that you can easily use the library in many ways. This progress hud
+using the native progress hud library.
 
 ## Getting Started
 
@@ -76,5 +77,8 @@ Function<T>.showProgressBar(
     textColorHex:"#ffffff"
 );
 ```
+
+
+# Thanks
 
 Thank you so much [MohammedAlimoor](https://pub.dev/packages/native_progress_hud) for `native_progress_hud` library 🙂

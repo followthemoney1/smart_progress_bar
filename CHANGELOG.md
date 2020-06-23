@@ -1,11 +1,16 @@
+
+## [0.1.5]
+
+* change readme - description
+
 ## [0.1.4]
 
-* change readme
+* change readme - add thanks field
 
 
 ## [0.1.3]
 
-* change readme
+* change readme - format code
 
 
 ## [0.1.2]
@@ -30,6 +35,6 @@
 * change package
 
 
-## [0.0.1] 
+## [0.0.1]
 
 * release
