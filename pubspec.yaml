@@ -1,6 +1,6 @@
 name: smart_progress_bar
 description: Flutter is a progress bar that you can easily use the library in many ways.
-version: 0.1.5
+version: 0.1.6
 author: Dmitry Diachenko
 homepage: https://leaditteam.com/
 
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  native_progress_hud: ^1.0.4
+  native_progress_hud: ^1.0.5
 
 dev_dependencies:
   flutter_test:

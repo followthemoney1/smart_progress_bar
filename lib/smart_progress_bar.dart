@@ -3,8 +3,8 @@ library smart_progress_bar;
 import 'package:flutter/cupertino.dart';
 import 'package:native_progress_hud/native_progress_hud.dart';
 
-void showProgressBar(
-    {Function whileRun,
+void showProgressBar<T>(
+    {Future<T> Function() whileRun,
     String text,
     String backgroundColorHex = "#000000",
     String textColorHex = "#ffffff",
@@ -14,18 +14,24 @@ void showProgressBar(
       backgroundColor != null ? backgroundColor.toHex() : backgroundColorHex;
   textColorHex = textColor != null ? textColor.toHex() : textColorHex;
   try {
+    //!MARK: check if text exist
     text == null
         ? await NativeProgressHud.showWaiting(
             backgroundColor: backgroundColorHex, textColor: textColorHex)
         : await NativeProgressHud.showWaitingWithText(text,
             backgroundColor: backgroundColorHex, textColor: textColorHex);
-    await whileRun();
+    //!MARK: check function non null
+    if (whileRun != null) await whileRun();
   } catch (e) {
     print(e);
   } finally {
     await Future.delayed(Duration(seconds: 1),
         () => NativeProgressHud.hideWaiting()); //for visibility
   }
+}
+
+void hideProgressBar() {
+  NativeProgressHud.hideWaiting();
 }
 
 extension SmartProgressBarFutureExt<T> on Future<T> {
