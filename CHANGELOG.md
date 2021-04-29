@@ -1,3 +1,11 @@
+## [0.1.7]
+
+* update progress bar
+* change function to Future Type
+
+## [0.1.6]
+
+* change readme - description
 
 ## [0.1.5]
 
